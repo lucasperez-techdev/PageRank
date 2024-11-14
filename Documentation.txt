@@ -1,0 +1,31 @@
+* Describe the data structure you used to implement the graph and why. [2.5 points]
+- The data structure that I used to implement the graph was a number of unordered maps or hashtables. The reason I chose
+  to use hashtables was because of their average O(1) time complexity when it comes to searching and inserting (Also deleting but that wasnt used in my project).
+
+* What is the computational complexity of each method in your implementation in the worst case in terms of Big O notation? [5 points]
+  - string PageRank(int power_iterations); O(N + P * (N + E) + N log N) where P is the number of power iterations, N is the number of URLs/Pages in the graph, and E is the number of edges in the graph
+                                                                        This is due to the addition of initializeRanks, computeRanks, and displayRanks
+
+    void initializeRanks(); O(N) where N is the number of URLS/Pages in the graph
+
+    void computeRanks(int power_iterations); O(P * (N + E)) where P is the number of power iterations, N is the number of URLs/Pages in the graph, and E is the number of edges in the graph
+
+    int getOrCreateID(string url); O(N) where N is the number of URLs/Pages in the graph (unordered maps degrade to O(N) if hash collisions occur in the worst case)
+
+    AdjacencyList();  O(1), just clears hashmaps which is O(1) operation
+
+    void addEdge(string from, string to); O(1) since this is just an insertion method for the hashmap
+
+    string displayRanks(); O(N Log N ) where N is the number of URls/Pages in the graph
+
+* What is the computational complexity of your main method in your implementation in the worst case in terms of Big O notation? [5 points]
+- O(N * E) where N is the number of URLs/Pages in the graph, and E is the number of edges in the graph. Due to possible hash collisions(since this is worst case)
+ However if P (Number of power iterations) is extremely large then it would be O(E + P * (N + E) + N log N).
+
+* What did you learn from this assignment, and what would you do differently if you had to start over? [2 points]
+- During this assignment I was able to learn alot more about hashtables (More used to dicts in python) so I gained alot of syntax knowledge and was able to engrain that in my head.
+  I also expanded my knowledge about graphs as I have never worked with them before so the troubleshooting and bug fixing was a tedious process. 
+  Something that I would do differently if I had to start over is making sure that I make an outline with what operations I need to complete and spend more time planning out the project before just jumping straight into it.
+  
+
+
